@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__shape2prog_csail_mit_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+              <meta name="viewport" content="width=device-width, initial-scale=1">    <link rel="shortcut icon" href="http://shape2prog.csail.mit.edu/images/favicon.ico">
+        <meta name="description" content="Counterfactual Data-Augmented Sequential Recommendation">
+        <meta name="keywords" content="Counterfactual Data-Augmented, Sequential Recommendation">
+
+        <title>Sequential Recommendation</title>
+        <link rel="stylesheet" href="asset/font.css">
+        <link rel="stylesheet" href="asset/main.css">
+
+    </head>
+
+    <body data-gr-c-s-loaded="true">
+
+        <div class="outercontainer">
+            <div class="container">
+
+                <div class="content project_title">
+                    <h1>Causally inspired Sequential Recommendation</h1>
+                </div>
+
+                <div class="content project_headline">
+                    <center><h2>
+                      <font size="3">Anonymous Author</font>&nbsp;&nbsp;
+                   
+                </div>
+                <div class="content">
+                    <div class="text">
+                        <h1>1. Abstract</h1>
+                        <p><font size=3>The key of sequential recommendation lies in the accurate item correlation modeling. Previous models infer such information based on
+                            item co-occurrences, which may fail to capture the real causal relations, and impact the recommendation performance and robustness.
+                            In this paper, we equip sequential recommendation with a novel
+                            causal discovery module to capture causalities among items. In
+                            general, we firstly assume that item correlations are determined by
+                            an underlying causal graph. Then we jointly learn the causal graph
+                            and sequential recommender model by fitting the observed user
+                            behaviors. More specifically, in order to satisfy causality requirements, the causal graph is regularized by a differentiable directed
+                            acyclic constraint. Considering that the number of items in recommender systems can be very large, we represent each item as a
+                            mixture of latent clusters, and the causal graph is defined on the
+                            cluster level, which enhances the model scalability and robustness.
+                            In addition, we provide theoretical analysis on the identifiability
+                            of our causal graph in the context of sequential modeling. To the
+                            best of our knowledge, this is the first work that item causal relations are considered in the field of sequential recommendation. In
+                            the experiments, we apply our framework to different sequential
+                            recommender models, and extensive empirical studies demonstrate
+                            that our framework is effective in promoting the recommendation performance and explainability.</font></p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="text">
+                        <h1>2. Illustration of the exposure bias in sequential recommendation. </h1>
+                        <div class="content project_headline">
+                        <div class="img" style="text-align:center">
+                            <img class="img_responsive" src="asset/intro.png" alt="Intro" style="margin:auto;max-width:80%">
+                        </div>
+                        <div class="text">
+                            <p><font size=3>Figure 1:  Causalities among user sequential behaviors and
+                                the intuitive recommendation explanations induced from
+                                the causal user behaviors.</font></p>
+                        </div>
+						<div class="content">
+                    <div class="text">
+						 <h1>3. Illustration of Our framework. </h1>
+                        <div class="content project_headline">
+                        <div class="img" style="text-align:center">
+                            <img class="img_responsive" src="asset/model.png" alt="Intro" style="margin:auto;max-width:80%">
+                        </div>
+                        <div class="text">
+                            <p><font size=3>Figure 2:(a) Left: an illustration of the cluster assignment
+                                vector. Right: example of the cluster-level causal graph. Based
+                                on the cluster assignment vector and cluster-level causal
+                                graph, one can derive the causal relation between different
+                                items. (b) The architecture of our framework, where the red
+                                lines represent the local attention weights, and the blue lines
+                                indicate the global causal relations  </font></p>
+                        </div>
+
+						<div class="content">
+						<h3>Contributions</h3>
+                            <p><ul class="download">
+							<font size=3>
+                            <li> we propose to enhance sequential recommendation by capturing causal relations among user behaviors,
+                                which, to the best of our knowledge, is the first time in the recommendation domain.</li>
+							<li>To realize the above idea, we design
+                                a general framework by infusing a causal discovery module into
+                                sequential recommender models. To make this framework more
+                                scalable, we further propose an encoder-decoder architecture to
+                                define the causal graph on the cluster-level. </li>
+							<li>We provide theoretical analysis on the identifiability of our causal graph in the
+                                context of sequential models. </li>
+                            <li>We conduct extensive experiments
+                                to demonstrate the effectiveness of our framework in promoting
+                                the recommendation performance and explainability.</li>
+                            </font>
+                        </ul></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="text">
+                        <h1>3. Main Results</h1>
+                    </div>
+
+                    <div class="content project_headline">
+					<div class="text">
+                            <p><font size=3>Table 1: Overall comparison between the baselines and our models(the last four lines).</font></p>
+                        </div>
+                        <div class="img" style="text-align:center">
+                            <img class="img_responsive" src="asset/result.png" alt="result" style="margin:auto;max-width:90%">
+                        </div>
+                        
+                    </div>
+					
+                </div>
+				<div class="content">
+                    <div class="text">
+                        <h1>4. Code and Datasets</h1>
+
+						<h2> 4.1 Code <a href="https://drive.google.com/drive/folders/1lQ-YrASXlARl1_UNdyrWY9eX516vD3RW?usp=sharing">[link:Google Driver]</font></a></h2>
+						
+						<div class="content project_headline">
+						<div class="text">
+                            <p><font size=3>Table 2: Structure of the code files [main program].</font></p>
+                        </div>
+						<div class="img" style="text-align:center">
+                        
+
+                            <img class="img_responsive" src="asset/code.png" alt="result" style="margin:auto;max-width:90%">
+                        </div>
+					
+                        
+                        
+                        </div>
+                        <h2>4.2 Datasets <a href="https://drive.google.com/drive/folders/10Az-ZZwzb2yRTA42NsxGg4l5XNyHQahY?usp=sharing">[link:Google Driver]</a></font></h2>
+						<div class="content project_headline">
+						<div class="text">
+                            <p><font size=3>Table 3: Statistics of the datasets used in our experiments.</font></p>
+                        </div>
+                        <div class="img" style="text-align:center">
+                            <img class="img_responsive" src="asset/data.png" alt="result" style="margin:auto;max-width:90%">
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="content">
+                    <div class="text">
+                        <h1>5. Usage</h1>
+						<p> <font size=4>5.1. Download the code</font></p>
+						<p> <font size=4>5.2. Download the dataset, and put it into data/dataset name/ folder.</font></p>
+						<p> <font size=4>5.3. run main.py file.</font></p>
+						<font size=3>
+                        <p> For example: python main.py --dataset mind  --kernal GPU</p>
+                        The detailed configuration file is  properties/model/Causer.yaml.
+                    </div>
+                </div>
+               
+                <div class="content">
+                    <div class="text">
+                        <h1>6. Detailed parameter search ranges</h1>
+						<ul class="download">
+						<font size=3>
+                            <li><p>Learning rate: [0.1,0.01,0.001,0.0001]</p></li>
+							<li><p>Batch size: [64,128,256,512,1024]</p></li>
+							<li><p>Embedding size:[32,64,128]</p></li>
+							<li><p>The epsilon: [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]</p></li>
+                            <li><p>The lambda: [0,1e-1,1e-2,1e-3,1e-4,1e-5,1e-6]</p></li>
+                            <li><p>The K: [2,3,4,5,6,7,8,9,10]</p></li>
+                            <li><p>The eta: [1e-8,1e-6,1e-4,1e-2,1,1e2,1e4,1e6,1e8]</p></li>
+						</font>
+                        </ul>
+						
+                    </div>
+                </div>
+
+
+                <div class="content">
+                    <div class="text">
+                        <h1>7. Runtime Environment</h1>
+						<ul class="download">
+						<font size=3>
+                            <li><p>System:Linux dell-PowerEdge-R730</p></li>
+							<li><p>CPU: Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz</p></li>
+							<li><p>CPU-Memory:25G</p></li>
+							<li><p>GPU:NVIDIA Corporation GV100 [TITAN V] (rev a1)</p></li>
+                            <li><p>GPU-Memory:12G</p></li>
+							<li><p>Pytorch: 1.7.0</p></li>
+							<li><p>CUDA:10.1</p></li>
+						</font>
+                        </ul>
+						
+                    </div>
+                </div>
+
+<div id="download_plus_animation"></div></body></html>
+
+
