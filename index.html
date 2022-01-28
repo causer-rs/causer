@@ -17,7 +17,7 @@
             <div class="container">
 
                 <div class="content project_title">
-                    <h1>Causally inspired Sequential Recommendation</h1>
+                    <h1>Sequential Recommendation with Causal Behavior Discovery</h1>
                 </div>
 
                 <div class="content project_headline">
@@ -28,23 +28,28 @@
                 <div class="content">
                     <div class="text">
                         <h1>1. Abstract</h1>
-                        <p><font size=3>The key of sequential recommendation lies in the accurate item correlation modeling. Previous models infer such information based on
-                            item co-occurrences, which may fail to capture the real causal relations, and impact the recommendation performance and robustness.
-                            In this paper, we equip sequential recommendation with a novel
-                            causal discovery module to capture causalities among items. In
-                            general, we firstly assume that item correlations are determined by
-                            an underlying causal graph. Then we jointly learn the causal graph
-                            and sequential recommender model by fitting the observed user
-                            behaviors. More specifically, in order to satisfy causality requirements, the causal graph is regularized by a differentiable directed
-                            acyclic constraint. Considering that the number of items in recommender systems can be very large, we represent each item as a
-                            mixture of latent clusters, and the causal graph is defined on the
-                            cluster level, which enhances the model scalability and robustness.
-                            In addition, we provide theoretical analysis on the identifiability
-                            of our causal graph in the context of sequential modeling. To the
-                            best of our knowledge, this is the first work that item causal relations are considered in the field of sequential recommendation. In
-                            the experiments, we apply our framework to different sequential
-                            recommender models, and extensive empirical studies demonstrate
-                            that our framework is effective in promoting the recommendation performance and explainability.</font></p>
+                        <p><font size=3>The key of sequential recommendation lies in the accurate item
+                            correlation modeling. Previous models infer such information based
+                            on item co-occurrences, which may fail to capture the real causal
+                            relations, and impact the recommendation performance and explainability. In this paper, we equip sequential recommendation
+                            with a novel causal discovery module to capture causalities among
+                            user behaviors. Our general idea is firstly assuming a causal graph
+                            underlying item correlations, and then we learn the causal graph
+                            jointly with the sequential recommender model by fitting the real
+                            user behavior data. More specifically, in order to satisfy the causality requirement, the causal graph is regularized by a differentiable
+                            directed acyclic constraint. Considering that the number of items
+                            in recommender systems can be very large, we represent different
+                            items with a unified set of latent clusters, and the causal graph is
+                            defined on the cluster level, which enhances the model scalability and robustness. In addition, we provide theoretical analysis on
+                            the identifiability of the learned causal graph. To the best of our
+                            knowledge, this paper makes a first step towards combining sequential recommendation with causal discovery. For evaluating the
+                            recommendation performance, we implement our framework with
+                            different neural sequential architectures, and compare them with
+                            many state-of-the-art methods based on real-world datasets. Empirical studies manifest that our model can on average improve the
+                            performance by about 7% and 11% on 𝐹1 and NDCG, respectively.
+                            To evaluate the model explainability, we build a new dataset with
+                            human labeled explanations for both quantitative and qualitative
+                            analysis.</font></p>
                     </div>
                 </div>
 
@@ -56,9 +61,8 @@
                             <img class="img_responsive" src="asset/intro.png" alt="Intro" style="margin:auto;max-width:60%">
                         </div>
                         <div class="text">
-                            <p><font size=3>Figure 1:  Causalities among user sequential behaviors and
-                                the intuitive recommendation explanations induced from
-                                the causal user behaviors.</font></p>
+                            <p><font size=3>Figure 1:Illustrating our motivation on why modeling
+                                causalities among user behaviors is important.</font></p>
                         </div>
 						<div class="content">
                     <div class="text">
@@ -68,13 +72,11 @@
                             <img class="img_responsive" src="asset/model.png" alt="Intro" style="margin:auto;max-width:60%">
                         </div>
                         <div class="text">
-                            <p><font size=3>Figure 2:(a) Left: an illustration of the cluster assignment
-                                vector. Right: example of the cluster-level causal graph. Based
-                                on the cluster assignment vector and cluster-level causal
-                                graph, one can derive the causal relation between different
-                                items. (b) The architecture of our framework, where the red
-                                lines represent the local attention weights, and the blue lines
-                                indicate the global causal relations  </font></p>
+                            <p><font size=3>Figure 2:(a) The left is an exampled cluster-level causal
+                                graph, and the right are two cluster assignment vectors. The
+                                item-level causal relation is computed at the bottom. (b) Our
+                                model architecture, where the red and blue lines represent
+                                the local and global item relations, respectively.  </font></p>
                         </div>
 
 						<div class="content">
@@ -87,12 +89,11 @@
                                 a general framework by infusing a causal discovery module into
                                 sequential recommender models. To make this framework more
                                 scalable, we further propose an encoder-decoder architecture to
-                                define the causal graph on the cluster-level. </li>
-							<li>We provide theoretical analysis on the identifiability of our causal graph in the
-                                context of sequential models. </li>
-                            <li>We conduct extensive experiments
-                                to demonstrate the effectiveness of our framework in promoting
-                                the recommendation performance and explainability.</li>
+                                define the causal graph on the cluster-level.  </li>
+							<li>We provide theoretical analysis on the identifiability of the causal graph learned in our
+                                framework. </li>
+                            <li>We conduct extensive experiments to demonstrate
+                                the effectiveness of our framework in promoting the recommendation performance.</li>
                             </font>
                         </ul></p>
                         </div>
@@ -170,7 +171,7 @@
 							<li><p>Embedding size:[32,64,128]</p></li>
 							<li><p>Epsilon: [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]</p></li>
                             <li><p>Lambda: [0,1e-1,1e-2,1e-3,1e-4,1e-5,1e-6]</p></li>
-                            <li><p>K: [2,3,4,5,6,7,8,9,10]</p></li>
+                            <li><p>K: [2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100]</p></li>
 						</font>
                         </ul>
 						
@@ -183,13 +184,12 @@
                         <h1>7. Runtime Environment</h1>
 						<ul class="download">
 						<font size=3>
-                            <li><p>System:Linux dell-PowerEdge-R730</p></li>
-							<li><p>CPU: Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz</p></li>
-							<li><p>CPU-Memory:25G</p></li>
-							<li><p>GPU:NVIDIA Corporation GV100 [TITAN V] (rev a1)</p></li>
-                            <li><p>GPU-Memory:12G</p></li>
+                            <li><p>System:Linux 20.04.2-Ubuntu</p></li>
+							<li><p>CPU: 96  Intel(R) Xeon(R) Gold 5318Y CPU @ 2.10GHz</p></li>
+							<li><p>CPU-Memory:256G</p></li>
+							<li><p>GPU:NVIDIA Corporation  NVIDIA A40 (3*45G)</p></li>
 							<li><p>Pytorch: 1.7.0</p></li>
-							<li><p>CUDA:10.1</p></li>
+							<li><p>CUDA:11.5</p></li>
 						</font>
                         </ul>
 						
